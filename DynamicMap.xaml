@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skiaforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:tt="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                x:Name="Grid_Map"
+                Grid.RowSpan="5"
+                Grid.ColumnSpan="3"
+                BackgroundColor="Transparent">
+                <skiaforms:SKCanvasView x:Name="CanvasView_Map" PaintSurface="OnCanvasViewPaintSurface" />
+                <Grid.Effects>
+                    <tt:TouchEffect Capture="True" TouchAction="OnTouchEffectAction" />
+                </Grid.Effects>
+            </Grid>
+            <ImageButton
+                x:Name="Button_Back"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,0,0,0"
+                BackgroundColor="Transparent"
+                Clicked="Button_Back_Clicked"
+                HorizontalOptions="Start"
+                Source="btn_back.png"
+                WidthRequest="50" />
+            <ImageButton
+                x:Name="Button_Refresh"
+                Grid.Row="3"
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                BackgroundColor="Transparent"
+                Clicked="Button_Refresh_Clicked"
+                HorizontalOptions="End"
+                Source="btn_refresh.png"
+                WidthRequest="50" />
+            <Label
+                x:Name="Label_MapName"
+                Grid.Row="1"
+                Grid.Column="1"
+                FontAttributes="Bold"
+                FontSize="22"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="NoWrap"
+                TextColor="Black" />
+            <ImageButton
+                x:Name="Button_MoreMaps"
+                Grid.Row="1"
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                BackgroundColor="Transparent"
+                Clicked="Button_Menu_Clicked"
+                HorizontalOptions="End"
+                Source="btn_more.png"
+                WidthRequest="50" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
