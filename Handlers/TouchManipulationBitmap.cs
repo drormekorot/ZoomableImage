@@ -88,16 +88,14 @@ namespace AAA.Handlers
 
         public void AddHotspots(List<DynamicMapPointObj> points)
         {
-            IsDebugCheck(ref isDebug);
-
-			foreach (DynamicMapPointObj point in points)
+		foreach (DynamicMapPointObj point in points)
+		{
+			AddHotspot(new Hotspot
 			{
-				AddHotspot(new Hotspot
-				{
-					Id = point.PointId,
-					Rect = new SKRect((float)point.CoordX * widthRatio, (float)point.CoordY * heightRatio, (float)point.CoordX * widthRatio + (float)point.PointSizeX, (float)point.CoordY * heightRatio + (float)point.PointSizeY)
-				});
-			}            
+				Id = point.PointId,
+				Rect = new SKRect((float)point.CoordX * widthRatio, (float)point.CoordY * heightRatio, (float)point.CoordX * widthRatio + (float)point.PointSizeX, (float)point.CoordY * heightRatio + (float)point.PointSizeY)
+			});
+		}            
         }
 
         public void Paint(SKImageInfo info, SKCanvas canvas)
